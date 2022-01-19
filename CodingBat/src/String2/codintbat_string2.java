@@ -3,7 +3,7 @@ package String2;
 public class codintbat_string2 {
 
 	public static void main(String[] args) {
-
+		System.out.println(xyzMiddle("AAxyzBB"));
 	}
 
 	public String doubleChar(String str) {
@@ -121,6 +121,22 @@ public class codintbat_string2 {
 		String prefix = str.substring(0, n);
 		String newString = str.substring(n, str.length());
 		return newString.contains(prefix);
+	}
+
+	public static boolean xyzMiddle(String str) {
+		if(str.length() < 3) {
+			return false;
+		}
+		
+		int stringMinus2 = str.length() / 2 - 2;
+		int stringMinus1 = str.length() / 2 -1;
+		
+		if(str.length() % 2 == 0) {
+			return str.substring(stringMinus2, stringMinus2 + 3).equals("xyz") || 
+					str.substring(stringMinus1, stringMinus1 + 3).equals("xyz");
+		}
+		
+		return str.substring(stringMinus1, stringMinus1 + 3).equals("xyz");
 	}
 
 }
